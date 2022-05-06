@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+/* import the font from google font  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-0-b);
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-0: rgba(255, 255, 255, 0.3);
+  --color-0-a: rgba(255, 255, 255, 0.5);
+  --color-0-b: rgba(255, 255, 255, 1);
+}
+
+body {
+  background: rgb(131, 58, 180) no-repeat;
+  background: linear-gradient(
+    143deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.nav {
+  background: var(--color-0);
+  display: flex;
+  margin: 10px;
+  border-radius: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.logo span {
+  margin: 0 0 0 10px;
+  font-weight: bolder;
+}
+.menu {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.menu_list {
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  background: var(--color-0);
+  display: flex;
+  margin: 10px;
+  width: max-content;
+  padding: 20px 50px;
+  border-radius: 30px;
+  justify-content: space-between;
+  transition: all 0.3s;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.menu_list ul {
+  text-align: center;
+  list-style: none;
+}
+.menu_list ul li{
+  cursor: pointer;
+  font-size: 1.1em;
+}
+.menu_list ul li:hover{
+  text-decoration: underline;
+}
+
+.menu_list.active {
+  right: -500px;
+}
+
+.menu_item.active{
+  background: var(--color-0);
+  border-radius: 8px;
+  padding: 2px 5px;
+}
+
+.theme_btn{
+  position: relative;
+  margin: 20px 0 0 0 ;
+  width: 60px;
+  height: 30px;
+  background: var(--color-0-a);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+
+.theme_btn i{
+  margin: 0 6px;
+  color: #fff;
+}
+
+
+.toggle_btn{
+  position: absolute;
+  width: 40%;
+  height: 83%;
+  background: var(--color-0-b);
+  top: 2.5px;
+  left: 4px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.toggle_btn.active{
+  left: 32px;
+}
+
+.clock {
+  background: var(--color-0);
+  backdrop-filter: blur(50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 50px;
+  flex-direction: column;
+}
+.analog {
+  position: relative;
+}
+
+.analog::before {
+  position: absolute;
+  top: 48.5%;
+  left: 47.5%;
+  content: "";
+  height: 2vw;
+  width: 2vw;
+  background: var(--color-0-b);
+  border-radius: 50%;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.clock .clock_img {
+  width: 40vw;
+}
+.clock .clock_hand {
+  position: absolute;
+  transform-origin: bottom;
+  border-radius: 20px;
+  background: var(--color-0-a);
+}
+.clock .min_hand {
+  top: 21%;
+  left: 49.5%;
+  width: 7px;
+  height: 12vw;
+  transition: all 0.5s;
+}
+.clock .hour_hand {
+  top: 28%;
+  left: 49%;
+  width: 10px;
+  height: 9vw;
+  transition: all 0.5s;
+}
+.clock .sec_hand {
+  top: 14%;
+  left: 49.5%;
+  width: 4px;
+  height: 15vw;
+}
+
+.digital_time {
+  font-size: 2em;
+  /* font-weight: 600; */
+}
+
+.location{
+  text-transform: uppercase;
+  position: absolute;
+  top: 10px;
+  right: 32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1500px) {
+  /* .clock .clock_img {
+        width: 60vw;
+    } */
+}

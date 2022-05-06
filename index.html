@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <title>CLOCK</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="logo" onclick="">
+        <a href="#clock"
+          ><i class="bx bxs-time-five bx-tada"></i><span>Clock</span></a
+        >
+      </div>
+      <div class="menu " onclick="ham_menu()">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+    <div class="menu_list active">
+      <ul>
+        <li onclick="change_timezone(+5.5,'india')" id="india" class="menu_item active">India</li>
+        <li onclick="change_timezone(-5,'usa')" id="usa" class="menu_item">USA</li>
+        <li onclick="change_timezone(0,'uk')" id="uk" class="menu_item">UK</li>
+        <li onclick="change_timezone(+9,'japan')" id="japan" class="menu_item">Japan</li>
+      </ul>
+      <div class="theme_btn" onclick="change_theme()">
+        <i class='bx bxs-sun' ></i>
+        <i class='bx bxs-moon'></i>
+        <div class="toggle_btn"></div>
+      </div>
+    </div>
+    <div class="clock" id="clock">
+      <span class="location" onclick="ham_menu()">Location</span>
+      <div class="analog">
+        <img src="./clock_w.png" alt="Clock" class="clock_img" />
+        <div class="hour_hand clock_hand"></div>
+        <div class="min_hand clock_hand"></div>
+        <div class="sec_hand clock_hand"></div>
+      </div>
+      <div class="digital">
+        <span class="digital_time">hh:mm:ss day, date,month</span>
+        <br>
+
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/6026214fa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
