@@ -1,8 +1,9 @@
-let timezone = ['india',+5.5];
+let timezone = ["india", +5.5, "delhi"];
+const apikey = "7f0f07e7104d7ddc5fb7ff880026a06f";
 let old_location = "india";
-function change_timezone(gettimezone, location) {
-  if ((location != old_location)) {
-    timezone = [location,gettimezone];
+function change_timezone(gettimezone, location, city) {
+  if (location != old_location) {
+    timezone = [location, gettimezone, city];
     document.getElementById(location).classList.add("active");
     document.getElementById(old_location).classList.remove("active");
     old_location = location;
@@ -28,7 +29,7 @@ function tz_time(offset) {
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
-function set_time(location,time) {
+function set_time(city, location, time) {
   hr = document.querySelector(".hour_hand");
   min = document.querySelector(".min_hand");
   sec = document.querySelector(".sec_hand");
@@ -79,11 +80,31 @@ function set_time(location,time) {
     time[4] +
     " " +
     months[time[5]];
-  document.querySelector('.location').innerHTML = location
+
+  function fetchWeather(city) {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&units=metric&appid=" +
+        apikey
+    )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (responseJSON) {
+      const {temp} = responseJSON.main;
+      document.querySelector(".location").innerHTML = location +" "+ temp +"\&degC";
+    })}
+
+  fetchWeather(city)
+//  let a = fetchWeather("nagpur")
+//  console.log(a)
+  
+  // 
 }
 
 setInterval(() => {
-  set_time(timezone[0],tz_time(timezone[1]));
+  set_time(timezone[2], timezone[0], tz_time(timezone[1]));
 }, 1000);
 
 let menu = 0;
